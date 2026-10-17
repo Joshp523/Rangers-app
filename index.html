@@ -152,7 +152,7 @@ async function signOut(){await sb.auth.signOut();sy.msg='';bar()}
 async function sync(){if(!sb||!sy.user||sy.busy)return;if(!navigator.onLine){sy.msg='Offline. Changes will sync when you reconnect.';bar();return}
 sy.busy=1;sy.msg='Syncing…';bar();let changed=false;
 try{base=(await kvGet('base'))||{};let last=await kvGet('last');
-for(;;){let q=sb.from('items').select('*').order('synced_at').limit(1000);if(last)q=q.gt('synced_at',last);const {data,error}=await q;if(error)throw error;
+for(;;){let q=sb.from('rangers_items').select('*').order('synced_at').limit(1000);if(last)q=q.gt('synced_at',last);const {data,error}=await q;if(error)throw error;
 for(const r of data){last=r.synced_at;const arr=S[Object.keys(KM).find(c=>KM[c]==r.kind)];if(!arr)continue;const i=arr.findIndex(x=>x.id==r.id),loc=arr[i];
 if(loc&&strip(loc)!=(base[r.id]||{}).s&&(loc.u||0)>r.updated_at)continue;
 if(r.deleted){if(i>=0){arr.splice(i,1);changed=true}delete base[r.id];delete seen[r.id]}
@@ -161,13 +161,13 @@ if(data.length<1000)break}
 const keys=[];S.songs.forEach(s=>{if(s.pdf)keys.push('pdf'+s.id);s.recs.forEach(r=>keys.push(r.id))});S.maps.forEach(m=>keys.push('map'+m.id));S.docs.forEach(d=>{if(d.file)keys.push(d.id)});
 const up=new Set(await kvGet('upl')||[]);
 for(const k of keys){if(up.has(k))continue;const b=await kvGet('blob:'+k);
-if(b){const {error}=await sb.storage.from('files').upload(k,b,{upsert:true,contentType:b.type||'application/octet-stream'});if(!error)up.add(k)}
-else{const {data:d,error}=await sb.storage.from('files').download(k);if(!error){await kvSet('blob:'+k,d);up.add(k);changed=true}}}
+if(b){const {error}=await sb.storage.from('rangers-files').upload(k,b,{upsert:true,contentType:b.type||'application/octet-stream'});if(!error)up.add(k)}
+else{const {data:d,error}=await sb.storage.from('rangers-files').download(k);if(!error){await kvSet('blob:'+k,d);up.add(k);changed=true}}}
 await kvSet('upl',[...up]);
 const rows=[],pres=new Set();
 for(const c in KM)for(const it of S[c]){pres.add(it.id);if(!base[it.id]||base[it.id].s!=strip(it)){const d={...it};delete d.u;rows.push({id:it.id,kind:KM[c],data:d,deleted:false,updated_at:it.u||0})}}
 for(const id in base)if(!pres.has(id))rows.push({id,kind:base[id].k,data:{},deleted:true,updated_at:Date.now()});
-for(let i=0;i<rows.length;i+=200){const {error}=await sb.from('items').upsert(rows.slice(i,i+200));if(error)throw error}
+for(let i=0;i<rows.length;i+=200){const {error}=await sb.from('rangers_items').upsert(rows.slice(i,i+200));if(error)throw error}
 rows.forEach(r=>{if(r.deleted)delete base[r.id];else base[r.id]={k:r.kind,s:strip(r.data)}});
 await kvSet('base',base);await kvSet('last',last);await kvSet('state',S);
 sy.msg='Synced '+new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
