@@ -1,5 +1,5 @@
 // Bump V whenever you deploy a new version so phones refresh their cache.
-const V='rr-v8',ASSETS=["./", "./apple-touch-icon.png", "./config.js", "./icon-192.png", "./icon-512.png", "./index.html", "./manifest.webmanifest"];
+const V='rr-v9',ASSETS=["./", "./apple-touch-icon.png", "./config.js", "./icon-192.png", "./icon-512.png", "./index.html", "./manifest.webmanifest"];
 self.addEventListener('install',e=>e.waitUntil(caches.open(V).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!=V).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{const r=e.request;
