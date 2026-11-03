@@ -1,6 +1,6 @@
 :root{color-scheme:dark;--pine:#10251a;--card:rgba(15,36,25,.84);--card2:rgba(24,54,37,.9);--line:rgba(226,174,64,.24);--gold:#e2ae40;--gold2:#f4cc6b;--ink:#f6efdc;--mute:#bcc6b3;--green:#3e5f3a;--brown:#2c1a0b;--r:14px}
 *{box-sizing:border-box}html,body{height:100%;margin:0}
-body{background:var(--pine);color:var(--ink);font:17px/1.5 'Alegreya Sans',system-ui,sans-serif;display:flex;flex-direction:column;height:100dvh;overflow:hidden;-webkit-tap-highlight-color:transparent;overscroll-behavior:none;-webkit-text-size-adjust:100%}
+body{background:var(--pine);color:var(--ink);font:17px/1.5 'Alegreya Sans',system-ui,sans-serif;display:flex;flex-direction:column;position:fixed;inset:0;overflow:hidden;-webkit-tap-highlight-color:transparent;overscroll-behavior:none;-webkit-text-size-adjust:100%}
 h1,h2,h3,.brand{font-family:'Alegreya SC',Georgia,serif;font-weight:700;margin:0;letter-spacing:.01em}
 h1{font-size:2.1rem;color:var(--gold2);line-height:1.15}h2{font-size:1.2rem;color:var(--gold2)}h3{font-size:1.1rem}
 :focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
