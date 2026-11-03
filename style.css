@@ -95,3 +95,4 @@ main.r>.wrap>h2{display:inline-block;background:#e9b84bd9;padding:2px 14px;borde
 .list .row{flex-wrap:nowrap;flex:none}
 @media(max-width:760px){.th.m{width:52px;height:52px}.list .row .th.m:nth-child(3){display:none}}
 figure.raptor{margin:0;display:flex;flex-direction:column;align-items:center;gap:2px;flex:none}figure.raptor figcaption{font:700 .85rem 'Alegreya SC',Georgia,serif;letter-spacing:.06em;opacity:.8}
+@media (display-mode: standalone){body{bottom:calc(-1 * env(safe-area-inset-top))}}
