@@ -1,14 +1,12 @@
 :root{color-scheme:dark;--pine:#10251a;--card:rgba(15,36,25,.84);--card2:rgba(24,54,37,.9);--line:rgba(226,174,64,.24);--gold:#e2ae40;--gold2:#f4cc6b;--ink:#f6efdc;--mute:#bcc6b3;--green:#3e5f3a;--brown:#2c1a0b;--r:14px}
 *{box-sizing:border-box}html,body{height:100%;margin:0}
-body{background:var(--pine);color:var(--ink);font:17px/1.5 'Alegreya Sans',system-ui,sans-serif;display:flex;flex-direction:column;position:fixed;inset:0;overflow:hidden;-webkit-tap-highlight-color:transparent;overscroll-behavior:none;-webkit-text-size-adjust:100%}
+body{color:var(--ink);font:17px/1.5 'Alegreya Sans',system-ui,sans-serif;display:flex;flex-direction:column;position:fixed;inset:0;overflow:hidden;-webkit-tap-highlight-color:transparent;overscroll-behavior:none;-webkit-text-size-adjust:100%}
 h1,h2,h3,.brand{font-family:'Alegreya SC',Georgia,serif;font-weight:700;margin:0;letter-spacing:.01em}
 h1{font-size:2.1rem;color:var(--gold2);line-height:1.15}h2{font-size:1.2rem;color:var(--gold2)}h3{font-size:1.1rem}
 :focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
 .fabric{background:url(fabric.jpg) 0 0/354px auto repeat var(--gold)}
 /* main */
-main{flex:1;min-height:0;overflow:auto;padding:26px 36px 56px;-webkit-overflow-scrolling:touch;background:var(--bg) center/cover no-repeat var(--pine);position:relative}
-main.w{--bg:linear-gradient(rgba(12,30,20,.6),rgba(12,30,20,.78)),url(map-world.jpg)}
-main.u{--bg:linear-gradient(rgba(12,30,20,.58),rgba(12,30,20,.76)),url(map-us.jpg)}
+main{flex:1;min-height:0;overflow:auto;padding:26px 36px 56px;padding-bottom:calc(56px + env(safe-area-inset-bottom,0px));-webkit-overflow-scrolling:touch;position:relative}
 
 .wrap{max-width:1100px;margin:0 auto}
 .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.sp{justify-content:space-between}.end{justify-content:flex-end}
@@ -77,7 +75,7 @@ body{font-variant-numeric:lining-nums tabular-nums}h1,h2,h3,.stats b,.brand{font
 main.h{padding-top:calc(26px + env(safe-area-inset-top,0px))}
 @media(max-width:760px){main.h{padding-top:calc(16px + env(safe-area-inset-top,0px))}}
 /* rangers page: the Riley Raptor on small-weave fabric, no tint */
-main.r{background:url(riley-raptor.webp) center 58%/min(760px,92%) auto no-repeat fixed,url(fabric.jpg) 0 0/354px auto repeat var(--gold)}
+
 main.r .head h1,main.r>.wrap>h2,main.r>.wrap>.crumb{color:var(--brown);text-shadow:0 1px 0 #ffffff40}main.r>.wrap>h2 .mute{color:#3a2512;opacity:.75}main.r .empty:not(.card){color:var(--brown)}
 .hero{position:relative}
 /* home: rangers + activities */
@@ -90,9 +88,17 @@ main.r .head h1,main.r>.wrap>h2,main.r>.wrap>.crumb{color:var(--brown);text-shad
 button.tag{color:var(--ink);font:inherit;font-size:.9rem;cursor:pointer}
 /* bigger activity thumbnails */
 .th{width:104px;height:104px}.th.m{width:72px;height:72px;border-radius:10px}
-@media(max-width:760px){.big2{grid-template-columns:1fr}.bigt{min-height:0;padding:18px;flex-direction:row;align-items:flex-start}.th.m{width:60px;height:60px}.brand img{height:40px}main.r{background-size:min(760px,96%) auto,354px auto;background-attachment:scroll,scroll}.bi.xl{width:104px;height:104px}}
+@media(max-width:760px){.big2{grid-template-columns:1fr}.bigt{min-height:0;padding:18px;flex-direction:row;align-items:flex-start}.th.m{width:60px;height:60px}.brand img{height:40px}html[data-pg=r]{background-size:min(760px,96%) auto,354px auto}.bi.xl{width:104px;height:104px}}
 main.r>.wrap>h2{display:inline-block;background:#e9b84bd9;padding:2px 14px;border-radius:999px;box-shadow:0 2px 8px #3a251255}
 .list .row{flex-wrap:nowrap;flex:none}
 @media(max-width:760px){.th.m{width:52px;height:52px}.list .row .th.m:nth-child(3){display:none}}
 figure.raptor{margin:0;display:flex;flex-direction:column;align-items:center;gap:2px;flex:none}figure.raptor figcaption{font:700 .85rem 'Alegreya SC',Georgia,serif;letter-spacing:.06em;opacity:.8}
-@media (display-mode: standalone){body{bottom:calc(-1 * env(safe-area-inset-top))}}
+/* Page backgrounds live on <html>: on iPhone home-screen apps (black-translucent status bar) iOS lays the
+   page out short by the status-bar height, and only the root background is painted in the leftover strip.
+   In standalone mode the root is stretched by that height so the background reaches the bottom edge. */
+html{background:#10251a;overflow:hidden}
+html[data-pg=w]{background:linear-gradient(rgba(12,30,20,.6),rgba(12,30,20,.78)) no-repeat,url(map-world.jpg) center/cover no-repeat #10251a}
+html[data-pg=u]{background:linear-gradient(rgba(12,30,20,.58),rgba(12,30,20,.76)) no-repeat,url(map-us.jpg) center/cover no-repeat #10251a}
+html[data-pg=r]{background:url(riley-raptor.webp) center 58%/min(760px,92%) auto no-repeat,url(fabric.jpg) 0 0/354px auto repeat #e2ae40}
+@media(max-width:760px){html[data-pg=r]{background-size:min(760px,96%) auto,354px auto}}
+@media (display-mode: standalone){html{height:calc(100% + env(safe-area-inset-top,0px))}}
