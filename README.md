@@ -1,27 +1,28 @@
-# The Riley Rag: setup (about 20 minutes)
+<p align="center"><img src="img/logo.webp" width="180" alt="Riley Rangers eagle"></p>
 
-## 1. Create the Supabase project
-1. Sign up at supabase.com, then **New project** (free plan). Save the database password somewhere.
-2. **SQL Editor > New query**: paste all of `schema.sql` and **Run**.
-3. **Authentication > Providers > Email**: turn **off** "Confirm email" so grandma can sign up without waiting on an email.
-4. **Project Settings > API**: copy the **Project URL** and the **anon public** key.
+# Riley Rangers
 
-## 2. Connect the app
-Open `index.html` and replace `SUPABASE_URL` and `SUPABASE_ANON_KEY` near the top of the script. (The anon key is meant to be public; the security rules in `schema.sql` protect your data.)
+Troop app: rangers with profile photos and badges, activities, meeting minutes, merit badges, songs (sheet music and recordings) and the handbook. Works offline as a PWA; optional sync through Supabase.
 
-## 3. Host on GitHub Pages
-1. Create a GitHub repo, upload `index.html` and `favicon.png, favicon-32.png and emblem.png`.
-2. **Settings > Pages > Deploy from branch > main / root**. Your link will be `https://USERNAME.github.io/REPO/`.
-3. In Supabase, **Authentication > URL Configuration**: set **Site URL** to that link.
+## Run
 
-## 4. Make yourself the editor
-Open your site and create your account. Then run the last line of `schema.sql` in the SQL Editor (with your email). Refresh the site; you'll see **Publish new issue** and **Members**.
+Static files, no build. Serve the folder (GitHub Pages, Netlify, or `python3 -m http.server`) and open it. On iPhone: Share → Add to Home Screen.
 
-## 5. Games, Ask Peter and emails (new)
-Run `update2.sql` once in the SQL Editor. Then use the Games tab to set the first Wordler word.
+## Sync
 
-## 6. Publish
-Enter number, date, tagline, pick the PDF, and press **Publish**. Then email the link to your list.
+`config.js` holds the Supabase URL and publishable key. Sync uses the `rangers_items` table and the `rangers-files` storage bucket.
 
-## Keeping the free project awake
-Free projects pause after about a week with no activity. Weekly publishing keeps yours active; if it ever pauses, press **Restore** in the Supabase dashboard.
+## Deploy updates
+
+Bump `V` in `sw.js` (e.g. `rr-v11` → `rr-v12`) so installed phones fetch the new version.
+
+## Files
+
+| | |
+|---|---|
+| `index.html`, `app.js`, `style.css` | the app |
+| `config.js` | Supabase settings |
+| `sw.js`, `manifest.webmanifest`, `icon-*.png`, `apple-touch-icon.png` | offline and install |
+| `img/` | eagle logo, fabric tile, maps |
+| `fonts/`, `fonts.css` | Alegreya (SIL Open Font License) |
+| `vendor/` | pdf.js (Apache 2.0), supabase-js (MIT) |
