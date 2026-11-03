@@ -1,4 +1,4 @@
-<p align="center"><img src="img/logo.webp" width="180" alt="Riley Rangers eagle"></p>
+<p align="center"><img src="riley-raptor.webp" width="180" alt="The Riley Raptor"></p>
 
 # Riley Rangers
 
@@ -14,7 +14,7 @@ Static files, no build. Serve the folder (GitHub Pages, Netlify, or `python3 -m 
 
 ## Deploy updates
 
-Bump `V` in `sw.js` (e.g. `rr-v11` → `rr-v12`) so installed phones fetch the new version.
+Bump `V` in `sw.js` (e.g. `rr-v12` → `rr-v13`) so installed phones fetch the new version.
 
 ## Files
 
@@ -23,6 +23,8 @@ Bump `V` in `sw.js` (e.g. `rr-v11` → `rr-v12`) so installed phones fetch the n
 | `index.html`, `app.js`, `style.css` | the app |
 | `config.js` | Supabase settings |
 | `sw.js`, `manifest.webmanifest`, `icon-*.png`, `apple-touch-icon.png` | offline and install |
-| `img/` | eagle logo, fabric tile, maps |
-| `fonts/`, `fonts.css` | Alegreya (SIL Open Font License) |
-| `vendor/` | pdf.js (Apache 2.0), supabase-js (MIT) |
+| `riley-raptor.webp`, `fabric.jpg`, `map-*.jpg` | the Riley Raptor, fabric, maps |
+| `fonts.css`, `alegreya-*.woff2` | Alegreya (SIL Open Font License) |
+| `pdf.min.js`, `pdf.worker.min.js`, `supabase.min.js` | pdf.js (Apache 2.0), supabase-js (MIT) |
+
+Everything sits in one folder, so a plain GitHub file upload works.

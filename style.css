@@ -4,11 +4,11 @@ body{background:var(--pine);color:var(--ink);font:17px/1.5 'Alegreya Sans',syste
 h1,h2,h3,.brand{font-family:'Alegreya SC',Georgia,serif;font-weight:700;margin:0;letter-spacing:.01em}
 h1{font-size:2.1rem;color:var(--gold2);line-height:1.15}h2{font-size:1.2rem;color:var(--gold2)}h3{font-size:1.1rem}
 :focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
-.fabric{background:url(img/fabric.jpg) 0 0/354px auto repeat var(--gold)}
+.fabric{background:url(fabric.jpg) 0 0/354px auto repeat var(--gold)}
 /* main */
 main{flex:1;min-height:0;overflow:auto;padding:26px 36px 56px;-webkit-overflow-scrolling:touch;background:var(--bg) center/cover no-repeat var(--pine);position:relative}
-main.w{--bg:linear-gradient(rgba(12,30,20,.6),rgba(12,30,20,.78)),url(img/map-world.jpg)}
-main.u{--bg:linear-gradient(rgba(12,30,20,.58),rgba(12,30,20,.76)),url(img/map-us.jpg)}
+main.w{--bg:linear-gradient(rgba(12,30,20,.6),rgba(12,30,20,.78)),url(map-world.jpg)}
+main.u{--bg:linear-gradient(rgba(12,30,20,.58),rgba(12,30,20,.76)),url(map-us.jpg)}
 
 .wrap{max-width:1100px;margin:0 auto}
 .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.sp{justify-content:space-between}.end{justify-content:flex-end}
@@ -17,7 +17,7 @@ main.u{--bg:linear-gradient(rgba(12,30,20,.58),rgba(12,30,20,.76)),url(img/map-u
 .tile,.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 10px 30px #0006;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 .tile{padding:18px;cursor:pointer;text-align:left;color:inherit;font:inherit;min-height:96px;transition:transform .15s,border-color .15s,background .15s;display:flex;gap:14px;align-items:center}
 .tile:hover{border-color:var(--gold);background:var(--card2);transform:translateY(-2px)}.tile p{margin:.2rem 0 0;color:var(--mute);font-size:.95rem}
-.ic{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;flex:none;background:url(img/fabric.jpg) 0 0/240px auto;color:var(--brown);box-shadow:inset 0 0 0 1px #0003}.ic svg{width:26px;height:26px}
+.ic{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;flex:none;background:url(fabric.jpg) 0 0/240px auto;color:var(--brown);box-shadow:inset 0 0 0 1px #0003}.ic svg{width:26px;height:26px}
 .card{padding:18px;margin:14px 0}
 .hero{display:flex;align-items:center;gap:26px;padding:22px 26px;margin:4px 0 18px;border-radius:20px;color:var(--brown);box-shadow:0 14px 40px #0008;border:1px solid #0000004d}
 .hero img{width:170px;height:auto;flex:none;filter:drop-shadow(0 8px 14px #3a2512b0)}.hero h1{color:var(--brown);font-size:2.6rem}.hero p{margin:.3rem 0 0;font-size:1.1rem;font-weight:500}
@@ -76,8 +76,8 @@ body{font-variant-numeric:lining-nums tabular-nums}h1,h2,h3,.stats b,.brand{font
 #top .sec{margin-left:auto;font:700 1rem 'Alegreya SC',Georgia,serif;opacity:.75}
 main.h{padding-top:calc(26px + env(safe-area-inset-top,0px))}
 @media(max-width:760px){main.h{padding-top:calc(16px + env(safe-area-inset-top,0px))}}
-/* rangers page: small-weave fabric with the eagle, no tint */
-main.r{background:url(img/logo.webp) center 58%/min(760px,92%) auto no-repeat fixed,url(img/fabric.jpg) 0 0/354px auto repeat var(--gold)}
+/* rangers page: the Riley Raptor on small-weave fabric, no tint */
+main.r{background:url(riley-raptor.webp) center 58%/min(760px,92%) auto no-repeat fixed,url(fabric.jpg) 0 0/354px auto repeat var(--gold)}
 main.r .head h1,main.r>.wrap>h2,main.r>.wrap>.crumb{color:var(--brown);text-shadow:0 1px 0 #ffffff40}main.r>.wrap>h2 .mute{color:#3a2512;opacity:.75}main.r .empty:not(.card){color:var(--brown)}
 .hero{position:relative}
 /* home: rangers + activities */
@@ -94,3 +94,4 @@ button.tag{color:var(--ink);font:inherit;font-size:.9rem;cursor:pointer}
 main.r>.wrap>h2{display:inline-block;background:#e9b84bd9;padding:2px 14px;border-radius:999px;box-shadow:0 2px 8px #3a251255}
 .list .row{flex-wrap:nowrap;flex:none}
 @media(max-width:760px){.th.m{width:52px;height:52px}.list .row .th.m:nth-child(3){display:none}}
+figure.raptor{margin:0;display:flex;flex-direction:column;align-items:center;gap:2px;flex:none}figure.raptor figcaption{font:700 .85rem 'Alegreya SC',Georgia,serif;letter-spacing:.06em;opacity:.8}
