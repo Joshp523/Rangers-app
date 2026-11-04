@@ -1,30 +1,36 @@
-<p align="center"><img src="riley-raptor.webp" width="180" alt="The Riley Raptor"></p>
+<p align="center"><img src="icon-192.png" width="110" alt=""></p>
 
-# Riley Rangers
+<h1 align="center">Riley Rangers</h1>
+<p align="center"><em>The troop's handbook, roster and badge book, in one app.</em></p>
+<p align="center"><a href="https://joshp523.github.io/Rangers-app/"><b>▶ Open the app</b></a></p>
 
-Troop app: rangers with profile photos and badges, activities, meeting minutes, merit badges, songs (sheet music and recordings) and the handbook. Works offline as a PWA; optional sync through Supabase.
+<p align="center"><img src="readme-showcase.jpg" alt="Riley Rangers on a phone"></p>
 
-## Run
+Riley Rangers is the home base for the family troop, under the watchful eye of the Riley Raptor. It keeps track of every ranger, every adventure and every badge earned.
 
-Static files, no build. Serve the folder (GitHub Pages, Netlify, or `python3 -m http.server`) and open it. On iPhone: Share → Add to Home Screen.
+## What's inside
 
-## Sync
+- **Rangers:** a roster with profile photos and the badges each ranger has earned.
+- **Activities:** log hikes, campouts and meetings, with meeting minutes.
+- **Merit badges:** each badge and its requirements (First Aid, Sailing, Camping, Hiking, Photography and more), and you can add your own.
+- **Music:** troop songs with sheet music and recordings.
+- **Handbook:** the troop handbook, right in the app.
+- **Maps:** where the troop has been, in the US and around the world.
 
-`config.js` holds the Supabase URL and publishable key. Sync uses the `rangers_items` table and the `rangers-files` storage bucket.
+<table><tr><td align="center" valign="top"><img src="readme-screen-1.jpg" width="230" alt="Home"><br><sub>Home</sub></td><td align="center" valign="top"><img src="readme-screen-2.jpg" width="230" alt="Merit badges"><br><sub>Merit badges</sub></td></tr></table>
+## Why it's worth a look
 
-## Deploy updates
+- **Cool:** An embroidered-patch look, on yellow fabric, with its own mascot: the Riley Raptor.
+- **Innovative:** It turns a family tradition into a real organization, with a roster, badge book, songbook and handbook.
+- **Impressive:** It works offline in the woods and syncs the whole troop when you're back in range.
+- **Useful:** No more lost badge cards or forgotten songs. Everything the troop needs is on every leader's phone.
 
-Bump `V` in `sw.js` (e.g. `rr-v12` → `rr-v13`) so installed phones fetch the new version.
+---
 
-## Files
+### On your phone
+Open the link in Safari (iPhone/iPad) or Chrome (Android), then choose **Share → Add to Home Screen**. It gets its own icon and opens full-screen, just like an app from the store.
 
-| | |
-|---|---|
-| `index.html`, `app.js`, `style.css` | the app |
-| `config.js` | Supabase settings |
-| `sw.js`, `manifest.webmanifest`, `icon-*.png`, `apple-touch-icon.png` | offline and install |
-| `riley-raptor.webp`, `fabric.jpg`, `map-*.jpg` | the Riley Raptor, fabric, maps |
-| `fonts.css`, `alegreya-*.woff2` | Alegreya (SIL Open Font License) |
-| `pdf.min.js`, `pdf.worker.min.js`, `supabase.min.js` | pdf.js (Apache 2.0), supabase-js (MIT) |
+### More apps by Josh Riley
+[The Riley Rag](https://joshp523.github.io/RileyRag/) · [QuipRash](https://joshp523.github.io/Quip-game-app/) · [Word Games](https://joshp523.github.io/Word-Games/) · [Russian Verbs](https://joshp523.github.io/russian/) · [Habits: Josh](https://joshp523.github.io/daily-discipline/) · [Habits: Meishe](https://joshp523.github.io/Habit-tracker-app-Meishe/) · [Habits: Grandma](https://joshp523.github.io/wendys-app/) · [Writing](https://joshp523.github.io/writing-app/)
 
-Everything sits in one folder, so a plain GitHub file upload works.
+<sub>Built by Josh Riley. Setup notes for whoever maintains it are in [SETUP.md](SETUP.md).</sub>
