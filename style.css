@@ -102,3 +102,10 @@ html[data-pg=u]{background:linear-gradient(rgba(12,30,20,.58),rgba(12,30,20,.76)
 html[data-pg=r]{background:url(riley-raptor.webp) center 58%/min(760px,92%) auto no-repeat,url(fabric.jpg) center/cover no-repeat #e2ae40}
 @media(max-width:760px){html[data-pg=r]{background-size:min(760px,96%) auto,cover}}
 @media (display-mode: standalone){html{height:calc(100% + env(safe-area-inset-top,0px))}}
+/* thumbnails that replace the fabric icons */
+.ic.thm{object-fit:cover;background:#0006;border:1px solid var(--line);box-shadow:0 2px 8px #0005}.ic.thm.rnd{border-radius:50%}
+/* read-only text and badge reordering */
+.pre{white-space:pre-wrap;margin:.3rem 0 1rem;line-height:1.5}ol.reqs{margin:.4rem 0 .4rem;padding-left:1.4rem;line-height:1.55}ol.reqs li{margin:.25rem 0}
+.hdl{cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;font-size:1.5rem;line-height:1;padding:6px 10px 6px 2px;color:var(--gold2);flex:none}
+.list.reo>*{cursor:default}.list.reo>.drag{background:#ffffff1f;box-shadow:0 6px 18px #0007;position:relative;z-index:2}.list.reo>.drag .hdl{cursor:grabbing}
+.g.sq{padding:6px 11px;min-width:0}.g.sq:disabled{opacity:.3;cursor:default}

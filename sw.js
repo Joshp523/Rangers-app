@@ -1,5 +1,5 @@
 // Bump V whenever you deploy a new version so phones refresh their cache.
-const V='rr-v16',ASSETS=["./", "./alegreya-sans-400.woff2", "./alegreya-sans-500.woff2", "./alegreya-sans-700.woff2", "./alegreya-sc-500.woff2", "./alegreya-sc-700.woff2", "./app.js", "./apple-touch-icon.png", "./config.js", "./fabric.jpg", "./fonts.css", "./icon-192.png", "./icon-512.png", "./index.html", "./manifest.webmanifest", "./map-us.jpg", "./map-world.jpg", "./pdf.min.js", "./pdf.worker.min.js", "./riley-raptor.webp", "./style.css", "./supabase.min.js"];
+const V='rr-v17',ASSETS=["./", "./alegreya-sans-400.woff2", "./alegreya-sans-500.woff2", "./alegreya-sans-700.woff2", "./alegreya-sc-500.woff2", "./alegreya-sc-700.woff2", "./app.js", "./apple-touch-icon.png", "./config.js", "./fabric.jpg", "./fonts.css", "./icon-192.png", "./icon-512.png", "./index.html", "./manifest.webmanifest", "./map-us.jpg", "./map-world.jpg", "./pdf.min.js", "./pdf.worker.min.js", "./riley-raptor.webp", "./style.css", "./supabase.min.js"];
 self.addEventListener('install',e=>e.waitUntil(caches.open(V).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!=V).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{const r=e.request;

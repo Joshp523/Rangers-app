@@ -12,6 +12,8 @@ Static files, no build. Serve the folder (GitHub Pages, Netlify, or `python3 -m 
 
 `config.js` holds the Supabase URL and publishable key. Sync uses the `rangers_items` table and the `rangers-files` storage bucket.
 
+Only the signed-in leader can edit. Everyone else gets a read-only copy, which needs the read policies in `supabase-public-read.sql` (run it once in the Supabase SQL Editor).
+
 ## Deploy updates
 
 Bump `V` in `sw.js` (e.g. `rr-v12` → `rr-v13`) so installed phones fetch the new version.
